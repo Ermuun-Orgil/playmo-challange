@@ -33,7 +33,6 @@ export async function PUT(request: Request) {
   } catch (err: any) {
     return new Response(err, { status: 401 });
   }
-
   const { content_uri, body } = await request.json();
 
   const [contentType, contentId] = content_uri.split("_");
