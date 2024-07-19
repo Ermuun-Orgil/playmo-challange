@@ -45,13 +45,13 @@ export const SignupPage = () => {
       />
       <button
         onClick={submitButton}
-        className="w-full bg-[#0072d2] rounded h-[45px] font-semibold"
+        className="w-full bg-[#0072d2] hover:bg-[#4d9ce0] rounded h-[45px] font-semibold"
       >
         CONTINUE
       </button>
       <button
         onClick={() => router.push("/login")}
-        className="w-full border-[#31333f] border-[2px] rounded h-[45px] font-semibold"
+        className="w-full hover:bg-[#2b2b2b] border-[#31333f] border-[2px] rounded h-[45px] font-semibold"
       >
         Go to Login
       </button>

@@ -103,7 +103,7 @@ export const ReviewPage = () => {
             />
             <button
               onClick={send}
-              className="w-[100px] text-[16px] bg-[#424242] rounded h-full font-semibold"
+              className="w-[100px] text-[16px] bg-[#424242] hover:bg-[#555555] rounded h-full font-semibold"
             >
               Send
             </button>

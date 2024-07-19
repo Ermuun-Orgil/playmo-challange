@@ -7,29 +7,34 @@ export const Header = () => {
 
   return (
     <div className="fixed flex justify-between items-center h-[80px] w-[100vw] px-[15vw] z-40 bg-[#2b2b2b]">
-      <p className="text-[20px] font-semibold">Movie review</p>
+      <button
+        onClick={() => router.push("/")}
+        className="text-[20px] font-semibold"
+      >
+        Movie review
+      </button>
       <div className="flex gap-8">
-        <div
-          className="text-[20px] font-semibold cursor-pointer"
+        <button
+          className="text-[20px] font-semibold cursor-pointer hover:scale-105"
           onClick={() => router.push("/")}
         >
           Home
-        </div>
-        <div
-          className="text-[20px] font-semibold cursor-pointer"
+        </button>
+        <button
+          className="text-[20px] font-semibold cursor-pointer hover:scale-105"
           onClick={() => router.push("/history")}
         >
           History
-        </div>
-        <div
-          className="text-[20px] font-semibold cursor-pointer"
+        </button>
+        <button
+          className="text-[20px] font-semibold cursor-pointer hover:scale-105"
           onClick={() => {
             deleteCookie("user");
             router.push("login");
           }}
         >
           Logout
-        </div>
+        </button>
       </div>
     </div>
   );

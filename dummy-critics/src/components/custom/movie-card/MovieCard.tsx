@@ -12,7 +12,7 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
 
   return (
     <div className="w-[200px] h-[400px] flex items-center">
-      <div
+      <button
         onClick={() => router.push(`/reviews?content_uri=${data.uri}`)}
         className={`${hovered ? "scale-105" : "scale-100"} cursor-pointer`}
         onMouseEnter={() => setHovered(true)}
@@ -33,7 +33,7 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
             released date: {data.release_date}
           </p>
         </div>
-      </div>
+      </button>
     </div>
   );
 };
