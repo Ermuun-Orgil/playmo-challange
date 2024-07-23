@@ -29,9 +29,6 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
           } bg-[#0f0f0f] rounded-b-lg py-2 px-4`}
         >
           <p className="font-semibold text-[20px]">{data.title}</p>
-          <p className="font-light text-[14px]">
-            released date: {data.release_date}
-          </p>
         </div>
       </button>
     </div>

@@ -1,11 +1,14 @@
 "use client";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import "../styles/globals.css";
 import { getCookie } from "cookies-next";
 import { Header } from "@/components";
 import { redirect, usePathname } from "next/navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
 
 export default function RootLayout({
   children,
@@ -14,12 +17,15 @@ export default function RootLayout({
 }>) {
   const user = getCookie("user");
   const pathname = usePathname();
-  if (!user && !(pathname === "/login" || pathname === "/signup")) {
-    redirect("/login");
-  }
+  // if (
+  //   !getCookie("user") &&
+  //   !(pathname === "/login" || pathname === "/signup")
+  // ) {
+  //   redirect("/login");
+  // }
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={lato.className}>
         {pathname === "/login" || pathname === "/signup" ? <></> : <Header />}
         <div
           className={

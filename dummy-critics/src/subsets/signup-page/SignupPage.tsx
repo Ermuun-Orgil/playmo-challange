@@ -33,11 +33,17 @@ export const SignupPage = () => {
         <p className="text-4xl">Sign up with your email</p>
       </div>
       <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter") submitButton();
+        }}
         onChange={(e) => setEmail(e.target.value)}
         className="w-full h-[45px] bg-[#31333f] px-2 rounded border-[1px] border-[#5a5a62]"
         placeholder="Email"
       />
       <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter") submitButton();
+        }}
         onChange={(e) => setPassword(e.target.value)}
         className="w-full h-[45px] bg-[#31333f] px-2 rounded border-[1px] border-[#5a5a62]"
         placeholder="Password"

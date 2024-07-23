@@ -12,6 +12,19 @@ export const ReviewPage = () => {
   useEffect(() => {
     axios({
       method: "get",
+      url: window.location.origin + `/api/contents${window.location.search}`,
+      headers: {
+        Authorization: "Bearer " + getCookie("user"),
+      },
+    })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    axios({
+      method: "get",
       url: window.location.origin + `/api/reviews${window.location.search}`,
       headers: {
         Authorization: "Bearer " + getCookie("user"),
@@ -96,6 +109,9 @@ export const ReviewPage = () => {
           </div>
           <div className="flex h-[45px] gap-4">
             <textarea
+              onKeyDown={(e) => {
+                if (e.key === "Enter") send();
+              }}
               value={review}
               onChange={(e) => setReview(e.target.value)}
               className="w-full h-full bg-[#31333f] p-2 rounded border-[1px] border-[#5a5a62]"
