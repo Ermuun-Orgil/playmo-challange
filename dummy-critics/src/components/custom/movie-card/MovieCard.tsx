@@ -37,15 +37,17 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
         <img
           alt="poster"
           src={data.poster_url}
-          className={`bg-contain rounded-t-lg ${hovered ? "" : "rounded-b-lg"}`}
+          className={`bg-contain w-full rounded-t-lg ${
+            hovered ? "" : "rounded-b-lg"
+          }`}
         />
-        <div
+        <motion.div
           className={`${
             hovered ? "block" : "hidden"
           } bg-[#0f0f0f] rounded-b-lg py-2 px-4`}
         >
           <p className="font-semibold text-[20px]">{data.title}</p>
-        </div>
+        </motion.div>
       </motion.button>
     </div>
   );

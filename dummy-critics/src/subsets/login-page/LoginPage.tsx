@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useState } from "react";
-import { getCookie, setCookie } from "cookies-next";
+import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { Alert } from "@/components";
 

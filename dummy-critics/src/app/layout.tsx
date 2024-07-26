@@ -1,9 +1,10 @@
 "use client";
 import { Lato } from "next/font/google";
 import "../styles/globals.css";
-import { getCookie } from "cookies-next";
 import { Header } from "@/components";
-import { redirect, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -15,14 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = getCookie("user");
   const pathname = usePathname();
-  // if (
-  //   !getCookie("user") &&
-  //   !(pathname === "/login" || pathname === "/signup")
-  // ) {
-  //   redirect("/login");
-  // }
+
   return (
     <html lang="en">
       <body className={lato.className}>
@@ -32,7 +27,7 @@ export default function RootLayout({
             pathname === "/login" || pathname === "/signup" ? "" : "pt-[80px]"
           }
         >
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </div>
       </body>
     </html>

@@ -38,7 +38,6 @@ export const ReviewPage = () => {
       },
     })
       .then(function (response) {
-        console.log(response.data);
         setReviewData(response.data);
       })
       .catch(function (error) {

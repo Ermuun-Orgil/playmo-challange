@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { bg, IconClear } from "@/assets";
 import { LoadingPage } from "../loading-page";
+import Image from "next/image";
 
 const category = ["New Movies", "TV Shows", "Comedy"];
 
@@ -53,19 +54,24 @@ export const HomePage = () => {
     }, 100);
   };
 
-  if (!data) {
-    return <LoadingPage />;
-  }
-
   return (
     <div className="flex flex-col items-center gap-10 mb-[100px]">
       <div className="relative flex flex-col items-center w-full py-[10vh] gap-4">
-        <div
+        {/* <div
           style={{ backgroundImage: `url(${bg})` }}
           className="bg-cover bg-center w-full h-full absolute top-0 left-0"
-        >
-          <div className="w-full h-full bg-black opacity-90" />
-        </div>
+        > */}
+        <Image
+          loading="eager"
+          alt="bg"
+          src={bg}
+          fill
+          objectFit="cover"
+          className="absolute z-[9]"
+          priority
+        />
+        <div className="w-full absolute top-0 h-full z-10 bg-black opacity-90" />
+        {/* </div> */}
         <p className="text-[24px] w-[300px] md:w-full md:text-[32px] z-10 font-semibold  text-center">
           Find Movies, TV shows and more
         </p>

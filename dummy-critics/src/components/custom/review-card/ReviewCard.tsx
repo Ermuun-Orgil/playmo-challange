@@ -15,6 +15,7 @@ export const ReviewCard: React.FC<ReviewCardType> = ({
   return (
     <div className="w-full">
       <button
+        disabled={!clickable}
         onClick={() => {
           if (clickable)
             router.push(`/reviews?content_uri=${data.content_uri}`);
