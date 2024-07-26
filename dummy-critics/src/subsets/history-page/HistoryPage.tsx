@@ -1,5 +1,5 @@
 "use client";
-import { ReviewCard } from "@/components";
+import { HistoryCard, ReviewCard } from "@/components";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
@@ -48,11 +48,11 @@ export const HistoryPage = () => {
         {data?.length !== 0 ? (
           sort === "Newest" ? (
             data?.toReversed().map((item: any, index: number) => {
-              return <ReviewCard key={index} data={item} clickable />;
+              return <HistoryCard key={index} data={item} />;
             })
           ) : (
             data?.map((item: any, index: number) => {
-              return <ReviewCard key={index} data={item} clickable />;
+              return <HistoryCard key={index} data={item} />;
             })
           )
         ) : (

@@ -1,6 +1,7 @@
 "use client";
 import moment from "moment";
 import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
 
 type ReviewCardType = {
   data: any;
@@ -12,10 +13,20 @@ export const ReviewCard: React.FC<ReviewCardType> = ({
   clickable = false,
 }) => {
   const router = useRouter();
+  const [seeMore, setSeeMore] = useState(false);
+
+  const cut = () => {
+    const sliced = data.body.slice(0, 300);
+    if (!seeMore) {
+      return sliced + (data.body.length > 300 ? "..." : "");
+    } else {
+      return data.body;
+    }
+  };
+  console.log(seeMore);
   return (
     <div className="w-full">
       <button
-        disabled={!clickable}
         onClick={() => {
           if (clickable)
             router.push(`/reviews?content_uri=${data.content_uri}`);
@@ -41,7 +52,17 @@ export const ReviewCard: React.FC<ReviewCardType> = ({
             </p>
           </div>
         </div>
-        <p className="text-start">{data.body}</p>
+        <p className="text-start">
+          {cut()}
+          <button
+            onClick={() => setSeeMore(!seeMore)}
+            className={`${
+              data.body.length > 300 ? "block" : "hidden"
+            } text-blue-300`}
+          >
+            {seeMore ? "see less" : "see more"}
+          </button>
+        </p>
       </button>
     </div>
   );

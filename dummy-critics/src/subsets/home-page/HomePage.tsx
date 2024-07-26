@@ -99,7 +99,7 @@ export const HomePage = () => {
             <div
               className={`${
                 movieName.trim() !== "" && focus ? "flex" : "hidden"
-              } absolute h-max-[200px] overflow-y-scroll flex-col items-start p-4 gap-1 top-[50px] w-full z-10 rounded bg-[#FFFFFF]`}
+              } absolute h-max-[200px] flex-col items-start p-4 gap-1 top-[50px] w-full z-10 rounded bg-[#FFFFFF]`}
             >
               {data
                 ?.filter((item: any) => {
@@ -108,6 +108,7 @@ export const HomePage = () => {
                     .includes(movieName.toLowerCase());
                 })
                 .map((item: any, index: number) => {
+                  if (index > 10) return;
                   return (
                     <button
                       onClick={() => {
@@ -116,7 +117,7 @@ export const HomePage = () => {
                         setMovieName(item.title);
                       }}
                       key={index}
-                      className="text-[#000] w-full text-start"
+                      className="text-[#000] w-full text-start hover:bg-[#e6e6e6] whitespace-nowrap"
                     >
                       {item.title}
                     </button>

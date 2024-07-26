@@ -92,7 +92,7 @@ export const ReviewPage = () => {
         <img src={contentDetail?.poster_url} className="rounded-lg z-10" />
         <div className="col-span-3 gap-[16px] flex flex-col z-10">
           <div>
-            <p className="text-[32px] font-bold">{contentDetail?.name}</p>
+            <p className="md:text-[32px] text-[24px] font-bold">{contentDetail?.name}</p>
             <p className="text-[#969696]">{contentDetail?.tagline}</p>
           </div>
           <div className="gap-[16px] hidden flex-col md:flex">
