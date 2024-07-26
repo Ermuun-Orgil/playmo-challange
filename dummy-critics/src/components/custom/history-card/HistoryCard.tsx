@@ -1,8 +1,7 @@
 "use client";
 import moment from "moment";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 type HistoryCardType = {
   data: any;

@@ -92,7 +92,9 @@ export const ReviewPage = () => {
         <img src={contentDetail?.poster_url} className="rounded-lg z-10" />
         <div className="col-span-3 gap-[16px] flex flex-col z-10">
           <div>
-            <p className="md:text-[32px] text-[24px] font-bold">{contentDetail?.name}</p>
+            <p className="md:text-[32px] text-[24px] font-bold">
+              {contentDetail?.name}
+            </p>
             <p className="text-[#969696]">{contentDetail?.tagline}</p>
           </div>
           <div className="gap-[16px] hidden flex-col md:flex">
@@ -148,7 +150,7 @@ export const ReviewPage = () => {
             onChange={(e) => {
               setSort(e.target.value);
             }}
-            className="bg-[#31333f] p-2 rounded border-[1px] border-[#5a5a62] w-[120px]"
+            className="bg-[#31333f] cursor-pointer p-2 rounded border-[1px] border-[#5a5a62] w-[120px]"
           >
             <option value={"Newest"}>Newest</option>
             <option value={"Oldest"}>Oldest</option>

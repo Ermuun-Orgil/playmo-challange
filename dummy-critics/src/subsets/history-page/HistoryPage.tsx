@@ -1,5 +1,5 @@
 "use client";
-import { HistoryCard, ReviewCard } from "@/components";
+import { HistoryCard } from "@/components";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
