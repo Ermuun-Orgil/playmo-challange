@@ -35,7 +35,7 @@ export const Alert: React.FC<AlertType> = ({ title, type, open, setOpen }) => {
       variants={variantsAlert}
       className={`${
         open ? "block" : "hidden"
-      } fixed top-10 right-10 w-max-[370px] bg-[#424242] p-2 rounded border-[1px] ${
+      } fixed top-[10vh] right-10 w-max-[370px] bg-[#424242] p-2 rounded border-[1px] ${
         type === "success"
           ? "border-green-300"
           : type === "error"
