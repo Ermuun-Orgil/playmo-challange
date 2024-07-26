@@ -12,7 +12,6 @@ export const ReviewCard: React.FC<ReviewCardType> = ({
   clickable = false,
 }) => {
   const router = useRouter();
-
   return (
     <div className="w-full">
       <button
@@ -30,16 +29,18 @@ export const ReviewCard: React.FC<ReviewCardType> = ({
             width={50}
             height={50}
             alt="avatar"
-            className="rounded-full"
+            className={`rounded-full ${data.user ? "block" : "hidden"}`}
           />
           <div className="flex flex-col items-start">
-            <p className="font-semibold text-[16px]">{data.user_id}</p>
+            <p className="font-semibold text-[16px]">
+              {data.user ? data.user.email : data?.content?.name}
+            </p>
             <p className="font-light text-[14px] text-[#969696]">
-              {moment(data.created_at).format("LL")}
+              {moment(data.created_at).fromNow()}
             </p>
           </div>
         </div>
-        <p>{data.body}</p>
+        <p className="text-start">{data.body}</p>
       </button>
     </div>
   );

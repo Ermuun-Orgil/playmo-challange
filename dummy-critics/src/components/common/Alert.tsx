@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Variants, motion } from "framer-motion";
 
 type AlertType = {
   open: boolean;
@@ -15,11 +16,26 @@ export const Alert: React.FC<AlertType> = ({ title, type, open, setOpen }) => {
       }, 3000);
   }, [open]);
 
+  const variantsAlert: Variants = {
+    hide: {
+      x: 400,
+    },
+    unhide: {
+      x: 0,
+      transition: {
+        type: "spring",
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      animate={open ? "unhide" : "hide"}
+      variants={variantsAlert}
       className={`${
         open ? "block" : "hidden"
-      } fixed top-10 right-10 bg-[#424242] p-2 rounded border-[1px] ${
+      } fixed top-10 right-10 w-max-[370px] bg-[#424242] p-2 rounded border-[1px] ${
         type === "success"
           ? "border-green-300"
           : type === "error"
@@ -30,6 +46,6 @@ export const Alert: React.FC<AlertType> = ({ title, type, open, setOpen }) => {
       }`}
     >
       {title}
-    </div>
+    </motion.div>
   );
 };

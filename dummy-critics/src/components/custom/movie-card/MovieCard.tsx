@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Variants, motion } from "framer-motion";
 
 type MovieCard = {
   data: any;
@@ -10,11 +11,26 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
   const [hovered, setHovered] = useState(false);
   const router = useRouter();
 
+  const variantsScale: Variants = {
+    unscale: {
+      scale: 1,
+    },
+    scale: {
+      scale: 1.05,
+      transition: {
+        type: "spring",
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
-    <div className="w-[200px] h-[400px] flex items-center">
-      <button
+    <div className="w-[150px] lg:w-[200px] h-[200px] lg:h-[400px] flex items-center">
+      <motion.button
+        variants={variantsScale}
+        animate={hovered ? "scale" : "unscale"}
         onClick={() => router.push(`/reviews?content_uri=${data.uri}`)}
-        className={`${hovered ? "scale-105" : "scale-100"} cursor-pointer`}
+        className={` cursor-pointer`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -30,7 +46,7 @@ export const MovieCard: React.FC<MovieCard> = ({ data }) => {
         >
           <p className="font-semibold text-[20px]">{data.title}</p>
         </div>
-      </button>
+      </motion.button>
     </div>
   );
 };

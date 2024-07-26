@@ -7,3 +7,11 @@ body {
   color: #d6d6d6;
   margin: 0;
 }
+
+.swiper-button-prev {
+  --swiper-theme-color: "#FFFFFF";
+}
+
+.swiper-button-next {
+  --swiper-theme-color: "#FFFFFF";
+}
